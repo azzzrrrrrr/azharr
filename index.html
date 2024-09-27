@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gadget Hub</title>
+    <style>
+        body {
+            background-color: #0f0f0f; /* Dark background for cyberpunk theme */
+            color: #eaeaea; /* Light text color */
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        header {
+            background-color: #121212; /* Darker header */
+            padding: 20px;
+            text-align: center;
+        }
+
+        nav {
+            margin: 20px 0;
+        }
+
+        nav a {
+            color: #00ffcc; /* Neon color for links */
+            margin: 0 15px;
+            text-decoration: none;
+            transition: color 0.3s; /* Smooth color transition */
+        }
+
+        nav a:hover {
+            color: #ff00ff; /* Change color on hover */
+        }
+
+        .container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            padding: 20px;
+        }
+
+        .card {
+            background-color: #2b2b2b; /* Card background */
+            border-radius: 10px;
+            margin: 15px;
+            padding: 20px;
+            width: 250px;
+            text-align: center;
+            box-shadow: 0 0 10px rgba(0, 255, 204, 0.5);
+            transition: transform 0.3s, box-shadow 0.3s; /* Added box-shadow transition */
+        }
+
+        .card img {
+            width: 100%;
+            border-radius: 10px;
+            transition: transform 0.3s; /* Added image transform transition */
+        }
+
+        .card h3 {
+            margin: 15px 0;
+            color: #00ffcc;
+        }
+
+        .button {
+            background-color: #00ffcc; /* Button color */
+            color: #1b1b1b; /* Button text color */
+            border: none;
+            border-radius: 5px;
+            padding: 10px 15px;
+            cursor: pointer;
+            transition: background-color 0.3s, color 0.3s; /* Smooth transition */
+        }
+
+        .button:hover {
+            background-color: #1b1b1b;
+            color: #00ffcc;
+            border: 2px solid #00ffcc;
+        }
+
+        .card:hover {
+            transform: scale(1.05); /* Scale effect on hover */
+            box-shadow: 0 0 20px rgba(0, 255, 204, 1); /* More pronounced shadow on hover */
+        }
+
+        /* Additional jQuery hover effects */
+        .card img:hover {
+            transform: scale(1.1); /* Scale image on hover */
+        }
+    </style>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            $('.card').hover(
+                function() {
+                    $(this).css('box-shadow', '0 0 20px rgba(0, 255, 204, 1)'); // Add shadow on hover
+                },
+                function() {
+                    $(this).css('box-shadow', '0 0 10px rgba(0, 255, 204, 0.5)'); // Remove shadow when not hovering
+                }
+            );
+        });
+
+        function addToCart(product) {
+            alert(product + ' has been added to your cart!');
+        }
+    </script>
+</head>
+<body>
+
+<header>
+    <h1>Welcome to Gadget Hub</h1>
+    <nav>
+        <a href="products.html">Products</a>
+        <a href="samsung.html">Samsung</a>
+        <a href="apple.html">Apple</a>
+        <a href="asus.html">Asus</a>
+        <a href="lenovo.html">Lenovo</a>
+        <a href="cart.html">Cart</a>
+    </nav>
+</header>
+
+<div class="container">
+    <div class="card">
+        <img src="https://i.pinimg.com/564x/db/d8/8b/dbd88bc1c82715e056def5b4f7564a49.jpg" alt="iPhone 15 Pro">
+        <h3>iPhone 15 Pro</h3>
+        <button class="button" onclick="addToCart('iPhone 15 Pro')">Add to Cart</button>
+    </div>
+    <div class="card">
+        <img src="https://tse2.mm.bing.net/th?id=OIP.GOnVw7fxAcF5GYEOZA4FHwAAAA&pid=Api&P=0&h=180" alt="Apple Watch Ultra 2"> <!-- Updated Image Link -->
+        <h3>Apple Watch Ultra 2</h3>
+        <button class="button" onclick="addToCart('Apple Watch Ultra 2')">Add to Cart</button>
+    </div>
+    <div class="card">
+        <img src="https://i.pinimg.com/564x/90/78/e2/9078e2eb3d2e67d8f18cae995775b924.jpg" alt="Apple Vision Pro">
+        <h3>Apple Vision Pro</h3>
+        <button class="button" onclick="addToCart('Apple Vision Pro')">Add to Cart</button>
+    </div>
+    <div class="card">
+        <img src="https://i.pinimg.com/564x/dc/ad/de/dcadde2e42bea9fd85aa27d3b58b86a3.jpg" alt="iPad Pro 12.9">
+        <h3>iPad Pro 12.9</h3>
+        <button class="button" onclick="addToCart('iPad Pro 12.9')">Add to Cart</button>
+    </div>
+    <div class="card">
+        <img src="https://i.pinimg.com/564x/d3/a9/1d/d3a91d58e6670c09e9e522019a2deda0.jpg" alt="AirPods Pro 2">
+        <h3>AirPods Pro 2</h3>
+        <button class="button" onclick="addToCart('AirPods Pro 2')">Add to Cart</button>
+    </div>
+    <div class="card">
+        <img src="https://i.pinimg.com/564x/52/23/0b/52230bfef638b026f653af0a1f22c169.jpg" alt="MacBook Pro 16 M2">
+        <h3>MacBook Pro 16 M2</h3>
+        <button class="button" onclick="addToCart('MacBook Pro 16 M2')">Add to Cart</button>
+    </div>
+    <div class="card">
+        <img src="https://i.pinimg.com/564x/49/5f/f9/495ff9c6beb3c8dc8b0bbfb7196b0383.jpg" alt="Apple AirTag">
+        <h3>Apple AirTag</h3>
+        <button class="button" onclick="addToCart('Apple AirTag')">Add to Cart</button>
+    </div>
+    <div class="card">
+        <img src="https://i.pinimg.com/564x/c4/50/e3/c450e3e3cda40d5d9335be8728824e22.jpg" alt="Apple Magic Keyboard">
+        <h3>Apple Magic Keyboard</h3>
+        <button class="button" onclick="addToCart('Apple Magic Keyboard')">Add to Cart</button>
+    </div>
+    <div class="card">
+        <img src="https://i.pinimg.com/564x/c8/86/fe/c886fe66d89fafc41bba39cf1bac8e98.jpg" alt="HomePod 2nd Gen">
+        <h3>HomePod 2nd Gen</h3>
+        <button class="button" onclick="addToCart('HomePod 2nd Gen')">Add to Cart</button>
+    </div>
+    <div class="card">
+        <img src="https://i.pinimg.com/564x/37/2c/b1/372cb1f194a683f36bdb2e64821304b7.jpg" alt="Apple TV 4K">
+        <h3>Apple TV 4K</h3>
+        <button class="button" onclick="addToCart('Apple TV 4K')">Add to Cart</button>
+    </div>
+</div>
+
+</body>
+</html>

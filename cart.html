@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gadget Hub</title>
+    <style>
+        body {
+            background-color: #121212; /* Dark cyberpunk theme */
+            color: #e0e0e0;
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+        h1 {
+            text-align: center;
+            margin-top: 20px;
+        }
+        nav {
+            background-color: #1f1f1f;
+            padding: 10px;
+            text-align: center;
+        }
+        nav a {
+            color: #e0e0e0;
+            margin: 10px;
+            text-decoration: none;
+        }
+        .product-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            margin: 20px;
+        }
+        .product {
+            background-color: #292929;
+            border: 1px solid #444;
+            border-radius: 5px;
+            margin: 10px;
+            padding: 10px;
+            width: 200px;
+            transition: transform 0.3s;
+        }
+        .product:hover {
+            transform: scale(1.05);
+        }
+        img {
+            width: 100%;
+            height: auto;
+        }
+        .product h3 {
+            font-size: 1.2em;
+            text-align: center;
+        }
+        .product p {
+            text-align: center;
+        }
+        .add-to-cart {
+            display: block;
+            background-color: #3f51b5;
+            color: white;
+            text-align: center;
+            padding: 10px;
+            text-decoration: none;
+            border-radius: 5px;
+            margin: 10px 0;
+        }
+        .add-to-cart:hover {
+            background-color: #303f9f;
+        }
+        #cart {
+            position: fixed;
+            top: 10px;
+            right: 10px;
+            background: #1f1f1f;
+            padding: 10px;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <a href="index.html">Home</a>
+        <a href="samsung.html">Samsung</a>
+        <a href="apple.html">Apple</a>
+        <a href="asus.html">Asus</a>
+        <a href="lenovo.html">Lenovo</a>
+        <a href="products.html">Products</a>
+        <a href="cart.html" id="cart-link">Cart (<span id="cart-count">0</span>)</a>
+    </nav>
+
+    <div id="cart">
+        <h3>Cart</h3>
+        <ul id="cart-items"></ul>
+    </div>
+
+    <h1>Gadget Hub</h1>
+    <div class="product-container">
+        <div class="product">
+            <img src="https://i.pinimg.com/564x/d6/db/b7/d6dbb7f8889583b9932f7e079a3fcc44.jpg" alt="Samsung Galaxy S23">
+            <h3>Samsung Galaxy S23</h3>
+            <p>Price: ₹74,999</p>
+            <a href="#" class="add-to-cart" data-name="Samsung Galaxy S23" data-price="74999">Add to Cart</a>
+        </div>
+        <div class="product">
+            <img src="https://i.pinimg.com/564x/67/70/23/6770233cf864ce2a4d270e030905261f.jpg" alt="Samsung Galaxy Z Fold 5">
+            <h3>Samsung Galaxy Z Fold 5</h3>
+            <p>Price: ₹1,84,999</p>
+            <a href="#" class="add-to-cart" data-name="Samsung Galaxy Z Fold 5" data-price="184999">Add to Cart</a>
+        </div>
+        <!-- Add other products similarly -->
+    </div>
+
+    <script>
+        const cart = [];
+
+        function updateCartDisplay() {
+            const cartCount = document.getElementById('cart-count');
+            const cartItems = document.getElementById('cart-items');
+            cartCount.textContent = cart.length;
+            cartItems.innerHTML = '';
+            cart.forEach(item => {
+                const li = document.createElement('li');
+                li.textContent = `${item.name} - ₹${item.price}`;
+                cartItems.appendChild(li);
+            });
+        }
+
+        document.querySelectorAll('.add-to-cart').forEach(button => {
+            button.addEventListener('click', (event) => {
+                event.preventDefault();
+                const productName = button.getAttribute('data-name');
+                const productPrice = button.getAttribute('data-price');
+                cart.push({ name: productName, price: productPrice });
+                updateCartDisplay();
+            });
+        });
+    </script>
+</body>
+</html>
